@@ -29,3 +29,16 @@ function showSectionById(id) {
 
     document.getElementById(id).classList.remove('hidden');
 }
+
+
+// active button color
+function setActiveButton(activeId, inactiveId) {
+    const activeButton = document.getElementById(activeId);
+    const inactiveButton = document.getElementById(inactiveId);
+
+    activeButton.classList.remove('border', 'btn-outline');
+    activeButton.classList.add('bg-[#B4F461]', 'ease-in', 'duration-[0.15s]');
+
+    inactiveButton.classList.remove('bg-[#B4F461]');
+    inactiveButton.classList.add('border', 'btn-outline', 'ease-in', 'duration-[0.15s]');
+  }

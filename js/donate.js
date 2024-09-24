@@ -3,8 +3,7 @@ const modal = document.getElementById('my_modal_5');
 
 // Closeing the modal when the close button is clicked
 // with defalt form behavior prevention
-document.querySelector('form[method="dialog"]').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.querySelector('form[method="dialog"]').addEventListener('submit', function() {
     closeModal('my_modal_5');
 });
 
@@ -13,11 +12,12 @@ function receiveDonation(donateButtonId, balanceDivId, mainBalanceDivtId) {
   const donateButton = document.getElementById(donateButtonId);
   const donationAmountInput = donateButton.parentNode.querySelector('input');
 
-  donateButton.addEventListener('click', function() {
+  donateButton.addEventListener('click', function(event) {
+    event.preventDefault();
     const donationAmount = parseFloat(donationAmountInput.value);
 
     if (donationAmount <= 0 || Number.isNaN(donationAmount) || !Number.isInteger(donationAmount)) {
-        alert("Wrong input! Please provide correct input");
+        alert("Wrong amount! Please provide correct amount ( add positive number )");
       }
     if(donationAmount > 0) {
       const currentBalance = getCurrentBalance(balanceDivId);
@@ -28,12 +28,47 @@ function receiveDonation(donateButtonId, balanceDivId, mainBalanceDivtId) {
       const newMainBalance = mainBalance - donationAmount;
       updateCurrentBalance(mainBalanceDivtId, newMainBalance);
 
+      if (newMainBalance <= 0) {
+        alert("Your balance is below zero. Please recharge more money.");
+      } else {
+        showModal('my_modal_5');
+        addDonationHistory(donationAmount, balanceDivId);
+      }
       donationAmountInput.value = '';
-      showModal('my_modal_5');
     }
 
   });
 }
+
+// Donation History
+function addDonationHistory(donationAmount, location) {
+    let donationMessage = '';
+
+    // getting the current time
+    const currentDate = new Date();
+    const dateFormat = currentDate.toLocaleString();
+
+    // custom message for each donation
+    if (location === 'noakhali-balance') {
+        donationMessage = `${donationAmount} Taka is Donated for Flood Relief in Noakhali, Bangladesh.`;
+    } else if (location === 'feni-balance') {
+        donationMessage = `${donationAmount}  Taka is Donated for famine-2024 at Feni, Bangladesh.`;
+    } else if (location === 'quota-balance') {
+        donationMessage = `${donationAmount} Taka is Donated for Aid for Injured in the Quota Movement, Bangladesh.`;
+    }
+
+    // the message html body
+    const donationHistory = document.createElement('div');
+    donationHistory.classList.add('card','ease-in', 'duration-[0.15s]' , 'border', 'p-8', 'lg:card-side', 'bg-base-100', 'hover:shadow-xl', 'mx-6','mb-8', 'lg:mx-40');
+    donationHistory.innerHTML = `
+        <div class="flex flex-col gap-3">
+        <h3 class="text-2xl font-bold">${donationMessage}</h3>
+        <p class="text-lg text-gray-500">Donated on: ${dateFormat}</p>
+        </div>
+    `;
+    document.getElementById('history__section').appendChild(donationHistory);
+}
+
 
 // function call Names
 receiveDonation('noakhali-donate-button', 'noakhali-balance', 'main-balance');
