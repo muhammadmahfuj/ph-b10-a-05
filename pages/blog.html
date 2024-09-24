@@ -1,14 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate Bangladesh FAQ</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- font weights
+     Thin: 100;
+     Extra Light: 200;
+     Light: 300;
+     Regular: 400;
+     Medium: 500;
+     Semi Bold: 600;
+     Bold: 700;
+     Extrabold: 800;
+     Black:900;
+     -->
+    <style>
+        .lexend {
+            font-family: "Lexend", sans-serif;
+            font-style: normal;
+        }
+    </style>
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUi -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-
+    <!-- navbar -->
+    <div class="navbar bg-[#F9F7F3] px-6 py-5 mb-20 lg:px-40">
+        <div class="navbar-start pr-0">
+            <button class="btn bg-[#B4F461] font-bold text-lg lg:pb-10 lg:text-xl lg:px-8 lg:py-3"><a
+                    class="visited:no-underline" href="../index.html">Home</a></button>
+        </div>
+        <div class="navbar-center lg:gap-4 mr-3 lg:mr-0">
+            <img class="hidden lg:block lg:w-10 lg:h-10" src="../assets/logo.png" alt="logo of donating hand">
+            <p class="text-lg font-bold">Donate Bangladesh</p>
+        </div>
+        <div class="navbar-end">
+            <div class="flex gap-1 items-center lg:gap-2">
+                <img class="w-6 h-6 lg:w-9 lg:h-9" src="../assets/coin.png" alt="">
+                <div class="font-bold lg:text-2xl">5500</div>
+                <div class="lg:text-2xl">BDT</div>
+            </div>
+        </div>
+    </div>
+    <!-- FAQ -->
+    <div class="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" checked="checked" />
+        <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
+        <div class="collapse-content">
+            <p>hello</p>
+        </div>
+    </div>
+    <div class="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
+        <div class="collapse-content">
+            <p>hello</p>
+        </div>
+    </div>
+    <div class="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
+        <div class="collapse-content">
+            <p>hello</p>
+        </div>
+    </div>
 </body>
 
 </html>
