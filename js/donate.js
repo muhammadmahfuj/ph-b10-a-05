@@ -18,21 +18,25 @@ function receiveDonation(donateButtonId, balanceDivId, mainBalanceDivtId) {
 
     if (donationAmount <= 0 || Number.isNaN(donationAmount) || !Number.isInteger(donationAmount)) {
         alert("Wrong amount! Please provide correct amount ( add positive number )");
+        donationAmountInput.value = '';
       }
     if(donationAmount > 0) {
       const currentBalance = getCurrentBalance(balanceDivId);
       const updatedBalance = currentBalance + donationAmount;
-      updateCurrentBalance(balanceDivId, updatedBalance);
+    //   updateCurrentBalance(balanceDivId, updatedBalance);
+        const mainBalance = getCurrentBalance(mainBalanceDivtId);
+        const newMainBalance = mainBalance - donationAmount;
 
-      const mainBalance = getCurrentBalance(mainBalanceDivtId);
-      const newMainBalance = mainBalance - donationAmount;
-      updateCurrentBalance(mainBalanceDivtId, newMainBalance);
-
-      if (newMainBalance <= 0) {
-        alert("Your balance is below zero. Please recharge more money.");
+    if (newMainBalance < 0) {
+        alert("Donation exceeds Current Balance. Please recharge more to donate.");
+        donationAmountInput.value = '';
+        return;
       } else {
-        showModal('my_modal_5');
-        addDonationHistory(donationAmount, balanceDivId);
+            updateCurrentBalance(mainBalanceDivtId, newMainBalance);
+            updateCurrentBalance(balanceDivId, updatedBalance);
+            updateCurrentBalance(mainBalanceDivtId, newMainBalance);
+            showModal('my_modal_5');
+            addDonationHistory(donationAmount, balanceDivId);
       }
       donationAmountInput.value = '';
     }

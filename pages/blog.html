@@ -34,7 +34,7 @@
 
 <body>
     <!-- navbar -->
-    <div class="navbar bg-[#F9F7F3] px-6 py-5 mb-20 lg:px-40">
+    <div class="navbar bg-[#F9F7F3] px-6 py-5 mb-7 lg:px-40">
         <div class="navbar-start pr-0">
             <button class="btn bg-[#B4F461] font-bold text-lg lg:pb-10 lg:text-xl lg:px-8 lg:py-3"><a
                     class="visited:no-underline" href="../index.html">Home</a></button>
@@ -52,27 +52,64 @@
         </div>
     </div>
     <!-- FAQ -->
-    <div class="collapse collapse-plus bg-base-200">
-        <input type="radio" name="my-accordion-3" checked="checked" />
-        <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-        <div class="collapse-content">
-            <p>hello</p>
-        </div>
-    </div>
-    <div class="collapse collapse-plus bg-base-200">
-        <input type="radio" name="my-accordion-3" />
-        <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-        <div class="collapse-content">
-            <p>hello</p>
-        </div>
-    </div>
-    <div class="collapse collapse-plus bg-base-200">
-        <input type="radio" name="my-accordion-3" />
-        <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-        <div class="collapse-content">
-            <p>hello</p>
-        </div>
-    </div>
+    <section class="px-6 py-5 mb-20 lg:px-40">
+        <header class="flex gap-1 mb-10">
+            <h1 class="font-bold text-5xl">Important FAQ</h1>
+            <img class="w-10 h-10" src="../assets/faq.png" alt="faq">
+        </header>
+        <section class="border shadow-lg">
+            <div class="collapse rounded-none collapse-arrow bg-base-200">
+                <input type="radio" name="my-accordion-3" checked="checked" />
+                <div class="collapse-title text-3xl font-medium">What is the Document Object Model (DOM)?</div>
+                <div class="collapse-content">
+                    <p>The DOM is a structured representation of an HTML document, where each part of the page (like
+                        elements,
+                        attributes, and text) is an object that JavaScript can interact with. It's how you dynamically
+                        access
+                        and change a web page's content and structure.</p>
+                </div>
+            </div>
+            <div class="collapse rounded-none collapse-arrow bg-base-200">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title text-3xl font-medium">How do you select an element from the DOM?</div>
+                <div class="collapse-content">
+                    <p>You can select elements using methods like document.getElementById(), document.querySelector(),
+                        or
+                        document.querySelectorAll() to grab elements by their ID, class, tag, or other CSS selectors.
+                    </p>
+                </div>
+            </div>
+            <div class="collapse rounded-none collapse-arrow bg-base-200">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title text-3xl font-medium">What is event delegation in the context of the DOM, and
+                    why
+                    is
+                    it useful?</div>
+                <div class="collapse-content">
+                    <p>Event delegation is when you attach a single event listener to a parent element to handle events
+                        from
+                        its
+                        child elements. It’s useful because it improves performance by reducing the number of event
+                        listeners
+                        and can handle dynamically added elements.</p>
+                </div>
+            </div>
+            <div class="collapse rounded-none collapse-arrow bg-base-200">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title text-3xl font-medium">How do you manipulate an element's attributes and
+                    styles
+                    using
+                    the DOM?</div>
+                <div class="collapse-content">
+                    <p>To change an attribute, use element.setAttribute() or element.removeAttribute(). For styles, you
+                        can
+                        directly modify them through element.style.property, like element.style.color = 'red';, or use
+                        classList
+                        to add or remove CSS classes.</p>
+                </div>
+            </div>
+        </section>
+    </section>
 </body>
 
 </html>
